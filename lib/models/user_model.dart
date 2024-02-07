@@ -13,7 +13,7 @@ class UserModel {
     String? name;
     String? username;
     String? email;
-    Address? address;
+ Address address;
     String? phone;
     String? website;
     Company? company;
@@ -23,7 +23,7 @@ class UserModel {
         this.name,
         this.username,
         this.email,
-        this.address,
+       required    this.address,
         this.phone,
         this.website,
         this.company,
@@ -31,10 +31,10 @@ class UserModel {
 
     factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         id: json["id"],
-        name: json["name"] == null ? null : json["name"],
+        name: json["name"] == null ? "" : json["name"],
         username: json["username"],
         email: json["email"],
-        address: json["address"] == null ? null : Address.fromJson(json["address"]),
+        address:  Address.fromJson(json["address"]),
         phone: json["phone"],
         website: json["website"],
         company: json["company"] == null ? null : Company.fromJson(json["company"]),
@@ -55,14 +55,14 @@ class UserModel {
 class Address {
     String? street;
     String? suite;
-    String? city;
+    String city;
     String? zipcode;
     Geo? geo;
 
     Address({
         this.street,
         this.suite,
-        this.city,
+         this.city="",
         this.zipcode,
         this.geo,
     });
@@ -70,7 +70,7 @@ class Address {
     factory Address.fromJson(Map<String, dynamic> json) => Address(
         street: json["street"],
         suite: json["suite"],
-        city: json["city"],
+        city:  json["city"]==null? 'calicut' :json["city"],
         zipcode: json["zipcode"],
         geo: json["geo"] == null ? null : Geo.fromJson(json["geo"]),
     );

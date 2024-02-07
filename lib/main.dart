@@ -1,7 +1,8 @@
-import 'package:appdevelop/screens/home_screen.dart';
 import 'package:appdevelop/view_models/users_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'view/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
